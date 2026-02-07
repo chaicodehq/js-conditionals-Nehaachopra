@@ -24,11 +24,11 @@
  */
 export function getTicketPrice(age, isWeekend) {
   // Your code here
+  // Return if not a number or number less than 0
+  if (Number(age) === NaN || age < 0) return -1;
+
   let basePrice = 0;
   let surcharge = 0;
-
-  // Return if not a number or number less than 0
-  if (!Number(age) || age < 0) return -1;
 
   if (age < 13) {
     basePrice = 8;
@@ -49,4 +49,7 @@ export function getTicketPrice(age, isWeekend) {
   else {
     surcharge = 0;
   }
+  return basePrice + surcharge;
 }
+
+console.log(getTicketPrice(0));
