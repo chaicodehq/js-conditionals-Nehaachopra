@@ -23,4 +23,21 @@
  */
 export function getTrafficAction(color) {
   // Your code here
+  let lColor = color.trim().toLowerCase();
+  console.log(lColor);
+
+  switch (lColor) {
+    case "green":
+      return "GO";
+    case "yellow":
+      return "SLOW DOWN";
+    case "red":
+      return "STOP";
+    case "flashing red":
+      return "STOP AND PROCEED WITH CAUTION"
+    default:
+      return "INVALID SIGNAL";
+  }
 }
+const timeTaken = "00:09:04";
+getTrafficAction("green");
