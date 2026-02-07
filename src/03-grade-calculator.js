@@ -26,4 +26,21 @@
  */
 export function calculateGrade(score, hasExtraCredit) {
   // Your code here
+
+  //check for validity of score
+  if (Number(score) === NaN || score < 0 || score > 100) return "INVALID";
+
+  let actualScore = score;
+  if (hasExtraCredit) {
+    actualScore += 5;
+    if (actualScore > 100) actualScore = 100;
+  }
+
+  if (actualScore < 60) return "F"
+  else if (actualScore < 70) return "D"
+  else if (actualScore < 80) return "C"
+  else if (actualScore < 90) return "B"
+  else if (actualScore < 101) return "A"
+  else return "INVALID"
 }
+const timeTaken = "00:06:02";
