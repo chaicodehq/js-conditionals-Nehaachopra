@@ -22,4 +22,21 @@
  */
 export function getWeatherAdvice(temperature, isRaining) {
   // Your code here
+  if (Number(temperature) === NaN) return "INVALID"
+
+  if (temperature < 5) return "Too cold - stay warm indoors"
+  else if (temperature < 15) {
+    if (isRaining) return "Cold and wet - best to stay indoors"
+    else return "Chilly - wear layers for your hike"
+  }
+  else if (temperature < 25) {
+    if (isRaining) return "Cool and rainy - bring waterproof gear if hiking"
+    else return "Perfect hiking weather - enjoy the trails"
+  }
+  else if (temperature < 35) {
+    if (isRaining) return "Warm but rainy - consider indoor activities"
+    else return "Great weather for hiking - don't forget sunscreen"
+  }
+  else return "Too hot for hiking - stay indoors and hydrate"
 }
+const timeTaken = "00:11:06";
