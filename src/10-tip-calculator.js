@@ -31,4 +31,19 @@
  */
 export function calculateTip(billAmount, serviceRating) {
   // Your code here
+  if (parseFloat(billAmount) === NaN || !Number.isInteger(serviceRating) || serviceRating < 1 || serviceRating > 5 || billAmount <= 0) return null
+
+  let tipPercent = 0;
+  if (serviceRating < 2) tipPercent = 5
+  else if (serviceRating < 3) tipPercent = 10
+  else if (serviceRating < 4) tipPercent = 15
+  else if (serviceRating < 5) tipPercent = 20
+  else tipPercent = 25
+
+  let tipAmt = roundToTwo(billAmount * tipPercent / 100);
+  return {"tipPercentage": tipPercent, "tipAmount": tipAmt, "totalAmount": roundToTwo(tipAmt + billAmount)}
+}
+
+function roundToTwo(number) {
+  return Math.round(number * 100)/100
 }
