@@ -30,4 +30,23 @@
  */
 export function calculateShipping(weight, country, orderTotal) {
   // Your code here
+  if (parseFloat(weight) === NaN || parseFloat(orderTotal) === NaN || weight <= 0 || orderTotal < 0) return -1;
+
+  let shippingCharge = 0;
+  if (country.toUpperCase() === "US") {
+    if (weight <= 1) shippingCharge = 5;
+    else if (weight <= 5) shippingCharge = 10;
+    else shippingCharge = 15;
+
+    if (orderTotal > 50) shippingCharge = 0;
+  }
+  else {
+    if (weight <= 1) shippingCharge = 15;
+    else if (weight <= 5) shippingCharge = 25;
+    else shippingCharge = 40;
+
+    if (orderTotal > 100) shippingCharge = 0;
+  }
+
+  return shippingCharge
 }
